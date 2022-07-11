@@ -18,6 +18,10 @@
 
     - name: "install python for Ansible."
       # Your code here
+      easy_install:
+        name: pip
+        state: latest
+
       become: yes
       raw: test -e /usr/bin/python3 || (apt -y update && apt install -y python3)
       changed_when: false
