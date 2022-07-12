@@ -1,0 +1,15 @@
+---
+- name: "install dependencies."
+  become: yes
+  apt:
+    name: ["nodejs", "npm"]
+    state: latest
+    update_cache: yes
+
+- name: "Stop server"
+  become: yes
+  command: pm2 stop default
+
+- name: "Start server"
+  become: yes
+  command: pm2 start npm -- start
