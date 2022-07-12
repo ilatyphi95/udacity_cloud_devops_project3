@@ -252,9 +252,9 @@ jobs:
           install-yarn: true
           node-version: "16.13"
 
-      - run:
-          name: Install python
-          command: sudo apt-get install -y python3
+      # - run:
+      #     name: Install python
+      #     command: sudo apt-get install -y python3
 
       - run:
           name: Get backend url
