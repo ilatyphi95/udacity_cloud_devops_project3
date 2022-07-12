@@ -288,6 +288,10 @@ jobs:
           command: |
             apk add --update ansible
 
+      - node/install:
+          install-yarn: true
+          node-version: "16.13"
+
       # - run:
       #     name: Install tar dependencies
       #     command: yum install -y tar gzip
