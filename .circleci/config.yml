@@ -286,11 +286,11 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-            apk add --update ansible
+            apk add --update ansible npm tar gzip
 
-      - node/install:
-          install-yarn: true
-          node-version: "16.13"
+      # - node/install:
+      #     install-yarn: true
+      #     node-version: "16.13"
 
       # - run:
       #     name: Install tar dependencies
