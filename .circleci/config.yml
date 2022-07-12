@@ -301,7 +301,7 @@ jobs:
           command: |
             # your code here
             cd backend
-            # npm i --force
+            npm i --legacy-peer-deps
             npm run build
             cd ..
             # Zip the directory
