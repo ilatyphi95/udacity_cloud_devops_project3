@@ -286,7 +286,7 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-            apk add --update ansible npm tar gzip
+            apk add --update ansible tar gzip
 
       # - node/install:
       #     install-yarn: true
