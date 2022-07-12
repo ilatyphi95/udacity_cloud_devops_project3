@@ -223,7 +223,8 @@ jobs:
             npm install
             # npm audit fix --audit-level=critical
             # Run and save the migration output
-            npm run migrations --force > migrations_dump.txt
+            npm run migrations > migrations_dump.txt
+            cat migrations_dump.txt
       - run:
           name: Send migration results to KVdb.io
           command: |
@@ -246,7 +247,7 @@ jobs:
 
       - node/install:
           install-yarn: true
-          node-version: "16.13"
+          node-version: "13.8.0"
 
       - run:
           name: Get backend url
@@ -286,11 +287,11 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-            apk add --update ansible tar npm gzip
+            apk add --update ansible tar gzip
 
-      # - node/install:
-      #     install-yarn: true
-      #     node-version: "16.13"
+      - node/install:
+          install-yarn: true
+          node-version: "13.8.0"
 
       # - run:
       #     name: Install tar dependencies
