@@ -261,7 +261,8 @@ jobs:
           command: |
             # your code here
             export BACKEND_IP=$(aws ec2 describe-instances \
-              --filter "Name=tag:Name,Values=backend-${CIRCLE_WORKFLOW_ID:0:7}" \
+              --filter "Name=tag:Name,Values=backend-e6318a2" \
+              # --filter "Name=tag:Name,Values=backend-${CIRCLE_WORKFLOW_ID:0:7}" \
               --query 'Reservations[*].Instances[*].PublicIP' \
               --output text )
             export API_URL="http://${BACKEND_IP}:3030" >> frontend/.env
@@ -275,7 +276,8 @@ jobs:
             npm install
             npm run build
             tar -czvf artifact-"${CIRCLE_WORKFLOW_ID:0:7}".tar.gz dist
-            aws s3 cp dist s3://udapeople-${CIRCLE_WORKFLOW_ID:0:7} --recursive
+            aws s3 cp dist s3://udapeople-e6318a2 --recursive
+            # aws s3 cp dist s3://udapeople-${CIRCLE_WORKFLOW_ID:0:7} --recursive
       # Here's where you will add some code to rollback on failure
 
 #   deploy-backend:
