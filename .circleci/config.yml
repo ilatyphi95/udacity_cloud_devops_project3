@@ -1,5 +1,6 @@
 version: 2.1
-
+orbs:
+  node: circleci/node@5.0.2
 commands:
   destroy-environment:
     description: Destroy back-end and front-end cloudformation stacks given a workflow ID.
@@ -244,12 +245,16 @@ jobs:
           command: yum install -y tar gzip
 
       - run:
-          name: update apt dependencies
-          command: sudo apt update
+          name: Install python
+          command: sudo apt-get install -y python3
 
-      - run:
-          name: Install nodejs dependencies
-          command: sudo apt install nodejs npm
+      # - run:
+      #     name: update apt dependencies
+      #     command: sudo apt update
+
+      - node/install:
+          install-yarn: true
+          node-version: "16.13"
 
       - run:
           name: Get backend url
