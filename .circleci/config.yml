@@ -286,7 +286,7 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-            apk add --update ansible tar gzip
+            apk add --update ansible tar npm gzip
 
       # - node/install:
       #     install-yarn: true
@@ -300,10 +300,10 @@ jobs:
           name: Deploy backend
           command: |
             # your code here
-            cd backend
-            npm i
-            npm run build
-            cd ..
+            # cd backend
+            # npm i
+            # npm run build
+            # cd ..
             # Zip the directory
             tar -C backend -czvf artifact.tar.gz .
             cd .circleci/ansible
