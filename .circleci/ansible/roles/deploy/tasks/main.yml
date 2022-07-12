@@ -1,4 +1,14 @@
 ---
+- name: Create directory
+  file:
+    path: ~/web
+    state: directory
+
+- name: Copy zipped artifact
+  template:
+    src: "tar -xvzf artifact.tar.gz"
+    dest: "~/web/index.js"
+
 - name: "install dependencies."
   become: yes
   apt:
