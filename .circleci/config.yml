@@ -240,9 +240,17 @@ jobs:
       # Checkout code from git
       - checkout
       - run:
-          name: Install dependencies
-          command: |
-            # your code here
+          name: Install tar dependencies
+          command: yum install -y tar gzip
+
+      - run:
+          name: update apt dependencies
+          command: sudo apt update
+
+      - run:
+          name: Install nodejs dependencies
+          command: sudo apt install nodejs npm
+
       - run:
           name: Get backend url
           command: |
